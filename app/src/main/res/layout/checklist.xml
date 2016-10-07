@@ -3,9 +3,45 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Admissions Checklist includes the list of tastsneeded to enroll in Michigan Engineering."
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            android:fontFamily="serif"
+            android:id="@+id/textView2"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_below="@+id/textView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADMISSIONS CHECKLIST:"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:id="@+id/textView"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
     </ListView>
 </LinearLayout>

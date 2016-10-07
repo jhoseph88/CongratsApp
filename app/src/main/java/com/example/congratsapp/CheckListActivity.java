@@ -39,5 +39,7 @@ public class CheckListActivity extends Activity {
         if (savedInstanceState == null) {
             savedInstanceState = new Bundle();
         }
+        ToDoAdapter toDoAdapter = new ToDoAdapter(this, toDoItems);
+        listView.setAdapter(toDoAdapter);
     }
 }

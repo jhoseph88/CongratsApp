@@ -6,11 +6,18 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox"/>
+        android:id="@+id/checkBox"
+        android:button="@drawable/custom_checkbox"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"/>
     <TextView
         android:id="@+id/checkListText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"/>
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:fontFamily="serif"
+        android:layout_marginTop="15dp"/>
 
 </LinearLayout>
