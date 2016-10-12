@@ -13,5 +13,6 @@ public class ToDo {
     public int getValue() {
         return this.value;
     }
+    public void setValue(int val) { this.value = val; }
 }
 

@@ -13,8 +13,6 @@ import android.widget.Button;
 public class FragmentTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        //FIXME: figure out how to switch to CheckListActivity by clicking the skipToChecklistButton button
-        //Fragment checklistFragment = new FragmentTwo();
         View view = inflater.inflate(R.layout.fragment_two_layout, container, false);
         Button toDoListButton = (Button)view.findViewById(R.id.skipToChecklistButton);
         toDoListButton.setOnClickListener(new View.OnClickListener() {

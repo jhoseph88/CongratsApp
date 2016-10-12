@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+    >
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -11,13 +12,43 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/stepNumberHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_alignBottom="@+id/checkBox"
+        android:layout_alignLeft="@+id/checkBox"
+        android:layout_alignStart="@+id/checkBox"
+        android:layout_marginBottom="2dp"/>
+
     <TextView
         android:id="@+id/checkListText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textColor="@android:color/black"
         android:fontFamily="serif"
-        android:layout_marginTop="15dp"/>
+        android:layout_weight="0.05"
+        android:layout_marginRight="8dp"
+        android:layout_below="@+id/stepNumberHeading"
+        android:layout_alignLeft="@+id/stepNumberHeading"
+        android:layout_alignStart="@+id/stepNumberHeading"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/depositReminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|italic"
+        android:layout_below="@+id/checkListText"
+        android:layout_alignLeft="@+id/checkListText"
+        android:layout_alignStart="@+id/checkListText"
+        android:layout_marginTop="2dp"/>
+
+</RelativeLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Congrats App</string>
+    <string name="deposit_reminder">(Note: Enrollment Deposit must be paid)</string>
 </resources>
