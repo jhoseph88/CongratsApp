@@ -18,7 +18,7 @@ public class FragmentFour extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent switchToAdmissionsChecklist = new Intent(getActivity(),
-                        CheckListActivity.class);
+                                                                CheckListActivity.class);
                 startActivity(switchToAdmissionsChecklist);
             }
         });

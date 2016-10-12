@@ -1,5 +1,6 @@
 package com.example.congratsapp;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -22,6 +23,8 @@ public class PagerAdapter extends FragmentPagerAdapter {
                 return new FragmentThree();
             case 3:
                 return new FragmentFour();
+            case 4:
+                return new FragmentFive();
             default:
                 break;
         }
@@ -31,6 +34,6 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Return number of fragments to swipe through in onboarding sequence
-        return 4;
+        return 5;
     }
 }
