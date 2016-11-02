@@ -1,13 +1,13 @@
 package com.example.congratsapp;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.TabActivity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
-import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 public class CheckListActivity extends Activity {
@@ -22,7 +22,7 @@ public class CheckListActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.checklist);
+        setContentView(R.layout.checklist_tab);
         listView = (ListView) findViewById(R.id.listView);
 
         //Build step number headings array (red "Step One, Step Two," etc. text)
@@ -36,31 +36,32 @@ public class CheckListActivity extends Activity {
         stepNumberHeadings[6] = "STEP SEVEN";
         toDoItems = new ToDo[admissionsItems];
         toDoItems[0] = new ToDo("Receive your acceptance letter and view admitted student website.",
-                                0);
+                0);
         toDoItems[1] = new ToDo("Register for Campus Day. This program is held January through " +
-                                "April, and registration starts in January", 0);
+                "April, and registration starts in January", 0);
         toDoItems[2] = new ToDo("Complete your CSS Profile and FAFSA: The early deadline is " +
-                                "February 15. April 30 is the final deadline.", 0);
+                "February 15. April 30 is the final deadline.", 0);
         toDoItems[3] = new ToDo("Pay your $300 enrollment deposit. Deposit is due by May 1. " +
-                                "Payment can be made via Wolverine Access, or post marked by " +
-                                "May 1, 2016. Please login to Wolvering Access for more" +
-                                "information about making your deposit.", 0);
+                "Payment can be made via Wolverine Access, or post marked by " +
+                "May 1, 2016. Please login to Wolvering Access for more" +
+                "information about making your deposit.", 0);
         toDoItems[4] = new ToDo("Check scholarship status. Admitted first-year students are " +
-                                "automatically considered for College of Engineering merit-based " +
-                                "scholarships, and notification of awards are made before " +
-                                "mid-April. U-M Scholarships are administered by the Office of " +
-                                "Financial Aid and most recipients are notified by April 15", 0);
+                "automatically considered for College of Engineering merit-based " +
+                "scholarships, and notification of awards are made before " +
+                "mid-April. U-M Scholarships are administered by the Office of " +
+                "Financial Aid and most recipients are notified by April 15", 0);
         toDoItems[5] = new ToDo("Submit your Housing/Michigan Learning Community Application." +
-                                "Due in mid May. If applying for a Michigan Learning Community, " +
-                                "additional essays are required. Please verify the requirements " +
-                                "for your selection", 0);
+                "Due in mid May. If applying for a Michigan Learning Community, " +
+                "additional essays are required. Please verify the requirements " +
+                "for your selection", 0);
         toDoItems[6] = new ToDo("Register for Orientation. Registration slots made available in " +
-                                "early April", 0);
+                "early April", 0);
         if (savedInstanceState == null) {
             savedInstanceState = new Bundle();
         }
         ToDoAdapter toDoAdapter = new ToDoAdapter(this, toDoItems, stepNumberHeadings);
         listView.setAdapter(toDoAdapter);
+
     }
     @Override
     public void onPause() {

@@ -2,12 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.congratsapp">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+
         <activity android:name=".Onboarding">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -28,12 +30,22 @@
                     android:scheme="http"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CheckListActivity"
-                  android:parentActivityName=".Onboarding">
-        </activity>
+
         <activity android:name=".VerticalVideoActivity"
                   android:parentActivityName=".Onboarding">
         </activity>
+        <activity android:name=".TabActivity"></activity>
+        <activity android:name=".AcademicsTab"></activity>
+        <activity android:name=".CheckListActivity"
+                  android:parentActivityName=".Onboarding">
+        </activity>
+        <activity
+            android:name=".DisplayWebpage"
+            android:label="@string/title_activity_display_webpage"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".LifeAndActivitiesTab"></activity>
+        <activity android:name=".OpportunitiesTab"></activity>
     </application>
 
 </manifest>

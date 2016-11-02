@@ -17,9 +17,8 @@ public class FragmentFour extends Fragment {
         toDoListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent switchToAdmissionsChecklist = new Intent(getActivity(),
-                                                                CheckListActivity.class);
-                startActivity(switchToAdmissionsChecklist);
+                Intent switchToTabActivity = new Intent(getActivity(), TabActivity.class);
+                startActivity(switchToTabActivity);
             }
         });
         return view;
