@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class ParseJSON {
     // HashMap to hold tabs (maps tab names, e.g. "Opportunities" to arry of Entries)
-    private HashMap<String, ArrayList<Entry>> tabList;
+    //private HashMap<String, ArrayList<Entry>> tabList;
 
     // JSON tags
     private static final String TAG_ID = "id";
@@ -34,12 +34,12 @@ public class ParseJSON {
     private static final String TAB_OPPORTUNITIES = "opportunities";
     private static final String TAB_ACADEMICS = "academics";
 
-    public ParseJSON() {
+    /*public ParseJSON() {
         tabList = new HashMap<String, ArrayList<Entry>>();
-    }
+    }*/
 
-    public HashMap<String, ArrayList<Entry>> ParseJSONString(String json) {
-    //public void ParseJSONString(String json) {
+    //public HashMap<String, ArrayList<Entry>> ParseJSONString(String json) {
+    public ArrayList<Entry> ParseJSONString(String json) {
         if (json != null) {
             try {
                 // Hashmap for ListView
@@ -48,11 +48,14 @@ public class ParseJSON {
                 JSONArray posts = new JSONArray(json);
 
                 // Array for life-and-communities tab
-                ArrayList<Entry> life_and_communities = new ArrayList<Entry>();
+                //ArrayList<Entry> life_and_communities = new ArrayList<Entry>();
                 // Array for academics tab
-                ArrayList<Entry> academics = new ArrayList<Entry>();
+                //ArrayList<Entry> academics = new ArrayList<Entry>();
                 // Array for opportunities tab
-                ArrayList<Entry> opportunities = new ArrayList<Entry>();
+                //ArrayList<Entry> opportunities = new ArrayList<Entry>();
+
+                // Array for posts that will be sent back for rendering
+                ArrayList<Entry> postsInTab = new ArrayList<Entry>();
 
                 // loop through posts
                 for (int i = 0; i < posts.length(); i++) {
@@ -95,22 +98,26 @@ public class ParseJSON {
                         Entry toAdd = new Entry(id, title, excerpt, thumbnailUrl, link);
 
                         // Add entry to its corresponding array which represents each tab
-                        if (link.indexOf("life-and-communities") != -1) {
+                        /*if (link.indexOf("life-and-communities") != -1) {
                             life_and_communities.add(toAdd);
                         } else if (link.indexOf("opportunities") != -1) {
                             opportunities.add(toAdd);
                         } else if (link.indexOf("academics") != -1) {
                             academics.add(toAdd);
-                        }
+                        }*/
+                        // Add entry to the posts array
+                        postsInTab.add(toAdd);
+
                     }
                     catch (JSONException e) {
                         continue;
                     }
                 }
-                tabList.put(TAB_LIFE_AND_COMMUNITIES, life_and_communities);
+                /*tabList.put(TAB_LIFE_AND_COMMUNITIES, life_and_communities);
                 tabList.put(TAB_OPPORTUNITIES, opportunities);
-                tabList.put(TAB_ACADEMICS, academics);
-                return tabList;
+                tabList.put(TAB_ACADEMICS, academics);*/
+                //return tabList;
+                return postsInTab;
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -123,7 +130,7 @@ public class ParseJSON {
     }
 
     // Function to return entries for a given tab
-    public ArrayList<Entry> getTabEntries(String tabName) {
+    /*public ArrayList<Entry> getTabEntries(String tabName) {
         return this.tabList.get(tabName);
-    }
+    }*/
 }

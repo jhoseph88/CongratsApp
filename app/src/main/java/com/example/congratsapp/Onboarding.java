@@ -34,13 +34,11 @@ public class Onboarding extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
 
-        final ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
         viewpager = (ViewPager)findViewById(R.id.pager);
         PagerAdapter padapter = new PagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(padapter);
 
     }
+
 
 }

@@ -8,7 +8,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        android:hardwareAccelerated="true">
 
         <activity android:name=".Onboarding">
             <intent-filter>
@@ -42,10 +43,11 @@
         <activity
             android:name=".DisplayWebpage"
             android:label="@string/title_activity_display_webpage"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         </activity>
         <activity android:name=".LifeAndActivitiesTab"></activity>
         <activity android:name=".OpportunitiesTab"></activity>
+
     </application>
 
 </manifest>

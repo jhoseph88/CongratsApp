@@ -18,8 +18,15 @@ public class PostTab extends ListActivity {
     // String for intent (for sticky broadcast)
     private static final String INTENT_ACADEMICS = "intent_academics";
     // String for the url for the JSON feed
-    //private static final String URL = "http://coecongrats.wpengine.com/wp-json/wp/v2/posts/56";
-    private static String URL = "http://coecongrats.wpengine.com/wp-json/wp/v2/posts";
+    //URL for academics tab
+    private static String URL_ACADEMICS = "http://coecongrats.wpengine.com/wp-json/wp/v2/posts?" +
+                                          "categories=3&per_page=100";
+    //URL for opportunities tab
+    private static String URL_OPPORTUNITIES = "http://coecongrats.wpengine.com/wp-json/wp/v2/" +
+                                              "posts?categories=5&per_page=100";
+    //URL for life and activities tab
+    private static String URL_LIFE_AND_ACTIVITIES = "http://coecongrats.wpengine.com/wp-json/wp/" +
+                                                    "v2/posts?categories=4&per_page=100";
     // Strings for tab titles
     private static final String TAB_OPPORTUNITIES = "opportunities";
     private static final String TAB_ACADEMICS = "academics";
@@ -46,7 +53,7 @@ public class PostTab extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tab_opportunities);
+       // setContentView(R.layout.tab_opportunities);
 
         // start asynchronous JSON processing
         new PostTab.ParseJSONAsync().execute();
@@ -57,6 +64,12 @@ public class PostTab extends ListActivity {
 
         // Hashmap for ListView (contains entries for all tabs)
         HashMap<String, ArrayList<Entry>> tabList;
+        // Array of academics posts
+        ArrayList<Entry> academicsPosts;
+        // Array of opportunities posts
+        ArrayList<Entry> opportunitiesPosts;
+        // Array for life and activities posts
+        ArrayList<Entry> lifeAndActivitiesPosts;
         //ArrayList<Entry> entries;
         // Dialog for page progress
         ProgressDialog pDialog;
@@ -64,6 +77,8 @@ public class PostTab extends ListActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            // Construct HashMap instance for tabList
+            tabList = new HashMap<String, ArrayList<Entry>>();
             // Showing progress dialog
             pDialog = new ProgressDialog(PostTab.this);
             pDialog.setMessage("Please wait...");
@@ -76,21 +91,29 @@ public class PostTab extends ListActivity {
             // Create service handler class instance
             WebRequest webRequest = new WebRequest();
 
-            // Make request to url and store response as JSON string
-            String jsonStr = webRequest.makeWebServiceCall(URL, WebRequest.GET);
+            // Make request to academics posts url and store posts as JSON string
+            String jsonStr = webRequest.makeWebServiceCall(URL_ACADEMICS, WebRequest.GET);
 
-            Log.d("Response: ", "> " + jsonStr);
+            //Log.d("Response: ", "> " + jsonStr);
             // Create JSON parser and parse JSON data from URL
             ParseJSON parser = new ParseJSON();
+            // Get a list of academics posts from the json parser
+            academicsPosts = parser.ParseJSONString(jsonStr);
 
-            // Get a list of posts (tabs) from the json parser
-            tabList = parser.ParseJSONString(jsonStr);
-            // make fragments for each tab in tabList
-            // LIFE_AND_COMMUNITIES tab
-            //Bundle b = new Bundle();
-            //b.putParcelableArrayList(TAB_ACADEMICS, tabList.get(TAB_ACADEMICS) );
-            //b.putParcelableArrayList(TAB_OPPORTUNITIES, tabList.get(TAB_OPPORTUNITIES));
-            //b.putParcelableArrayList(TAB_LIFE_AND_ACTIVITIES, tabList.get(TAB_LIFE_AND_ACTIVITIES));
+            // Make request to opportunities posts url and store posts as JSON string
+            jsonStr = webRequest.makeWebServiceCall(URL_OPPORTUNITIES, WebRequest.GET);
+            // Get list of opportunities posts
+            opportunitiesPosts = parser.ParseJSONString(jsonStr);
+
+            // Get a list of Life & Activities posts and store psots as JSON string
+            jsonStr = webRequest.makeWebServiceCall(URL_LIFE_AND_ACTIVITIES, WebRequest.GET);
+            // Get list of life and activities posts
+            lifeAndActivitiesPosts = parser.ParseJSONString(jsonStr);
+
+            // Populate tab HashMap with (tab title, posts array) data
+            tabList.put(TAB_ACADEMICS, academicsPosts);
+            tabList.put(TAB_OPPORTUNITIES, opportunitiesPosts);
+            tabList.put(TAB_LIFE_AND_COMMUNITIES, lifeAndActivitiesPosts);
 
             return null;
         }

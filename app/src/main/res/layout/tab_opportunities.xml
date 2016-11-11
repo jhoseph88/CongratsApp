@@ -1,8 +1,45 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+              android:orientation="vertical"
              tools:context="com.example.congratsapp.OpportunitiesTab">
+    <!--Header-->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPPORTUNITIES"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:id="@+id/textView"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Explore the great opportunities you'll find on campus!"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            android:fontFamily="serif"
+            android:id="@+id/textView2"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_below="@+id/textView"/>
+
+    </LinearLayout>
 
     <!-- ListView for entries in the tab-->
     <ListView
@@ -12,4 +49,6 @@
 
     </ListView>
 
-</FrameLayout>
+
+
+</LinearLayout>

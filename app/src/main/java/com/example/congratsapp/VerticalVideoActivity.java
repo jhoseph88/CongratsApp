@@ -1,19 +1,23 @@
 package com.example.congratsapp;
 import android.app.Activity;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class VerticalVideoActivity extends Activity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vertical_video);
         // new VideoView instance
         VideoView videoView = (VideoView)findViewById(R.id.verticalVid);
-        String videoAddr = "https://archive.org/download/ksnn_compilation_master_the_internet/" +
-                            "ksnn_compilation_master_the_internet_512kb.mp4";
+        String videoAddr = "https://www.youtube.com/watch?v=8WHFY6XxZ_8";
         Uri verticalVidUri = Uri.parse(videoAddr);
         videoView.setVideoURI(verticalVidUri);
 

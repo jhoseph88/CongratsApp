@@ -59,8 +59,9 @@ public class CustomEntryAdapter extends BaseAdapter {
             unencodedTitle = URLDecoder.decode( (titles.get(position) ), "ISO646-US" );
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-        }
-        title.setText(unencodedTitle);
+        } // Set attributes for entry
+        // Title text will be all caps
+        title.setText(unencodedTitle.toUpperCase() );
         TextView excerpt = (TextView) view.findViewById(R.id.excerpt);
         excerpt.setText(URLDecoder.decode(excerpts.get(position) ) );
         ImageView img = (ImageView) view.findViewById(R.id.imageView);

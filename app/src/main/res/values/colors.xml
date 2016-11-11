@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3f608a</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#750002</color>
+    <color name="NavyBlue">#00266e</color>
+    <color name="Maize">#fcdf02</color>
+    <color name="Black">#000000</color>
 </resources>
