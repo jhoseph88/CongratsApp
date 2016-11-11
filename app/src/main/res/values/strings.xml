@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">Congrats App</string>
+    <string name="app_name">Congrats Michigan Engineer!</string>
     <string name="deposit_reminder">(Note: Enrollment Deposit must be paid)</string>
     <string name="action_settings">action_settings</string>
     <string name="title_activity_display_webpage">DisplayWebpage</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="social_media"><a href='http://coecongrats.wpengine.com/to-do/social/\'>social media
+    </a></string>
 </resources>

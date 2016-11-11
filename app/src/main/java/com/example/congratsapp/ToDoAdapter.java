@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.view.ViewGroupCompat;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +57,8 @@ class ToDoAdapter extends ArrayAdapter<ToDo> {
                 }
             }
         });
-        name.setText(toDoItems[position].getName() );
+        name.setText(Html.fromHtml(toDoItems[position].getName() ) );
+        name.setMovementMethod(LinkMovementMethod.getInstance() );
         heading.setText(stepNumberHeadings[position]);
         // Add deposit reminder to final two checklist items.
         if (position == 5 || position == 6) {

@@ -1,5 +1,7 @@
 package com.example.congratsapp;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
@@ -28,17 +30,51 @@ public class Onboarding extends ActionBarActivity {
     }
     public Onboarding() {}
 
+    private final String ONBOARDING_STATUS = "onboardingDone";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
-
+        // Create onboarding pager with welcome screens that will be shown only once
         viewpager = (ViewPager)findViewById(R.id.pager);
         PagerAdapter padapter = new PagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(padapter);
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // Save state of listView via boolCheckBoxes variable
+        //editor.putString("thisCheckedList", String.valueOf(boolCheckBoxes) );
+        editor.putBoolean(ONBOARDING_STATUS, true);
+        editor.apply();
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // Save state of listView via boolCheckBoxes variable
+        editor.putBoolean(ONBOARDING_STATUS, true);
+        editor.apply();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Get boolean designating whether onboarding screens have been viewed
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Boolean onboardingDone = sharedPreferences.getBoolean(ONBOARDING_STATUS, false);
+
+        // if onboarding has been completed, just go to the tab activity
+        if (onboardingDone) {
+            Intent switchToTabActivity = new Intent(Onboarding.this, TabActivity.class);
+            startActivity(switchToTabActivity);
+        }
+    }
 }

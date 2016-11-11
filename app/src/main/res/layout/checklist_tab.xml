@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Admissions Checklist includes the list of tasks needed to enroll in Michigan Engineering."
+            android:text="You’re in! So, what’s next? This is your Admissions Checklist. These are the steps needed to enroll at Michigan Engineering.  "
             android:textColor="@android:color/white"
             android:textSize="11sp"
             android:fontFamily="serif"
