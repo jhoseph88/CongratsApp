@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Congrats Michigan Engineer!</string>
+    <string name="app_name">congrats</string>
     <string name="deposit_reminder">(Note: Enrollment Deposit must be paid)</string>
     <string name="action_settings">action_settings</string>
     <string name="title_activity_display_webpage">DisplayWebpage</string>

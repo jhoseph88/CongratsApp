@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -71,7 +72,6 @@ public class PostTab extends ListActivity {
         ArrayList<Entry> opportunitiesPosts;
         // Array for life and activities posts
         ArrayList<Entry> lifeAndActivitiesPosts;
-        //ArrayList<Entry> entries;
         // Dialog for page progress
         ProgressDialog pDialog;
 
@@ -95,7 +95,6 @@ public class PostTab extends ListActivity {
             // Make request to academics posts url and store posts as JSON string
             String jsonStr = webRequest.makeWebServiceCall(URL_ACADEMICS, WebRequest.GET);
 
-            //Log.d("Response: ", "> " + jsonStr);
             // Create JSON parser and parse JSON data from URL
             ParseJSON parser = new ParseJSON();
             // Get a list of academics posts from the json parser
@@ -141,7 +140,7 @@ public class PostTab extends ListActivity {
                 i.putExtra("entries", tabList.get(TAB_LIFE_AND_COMMUNITIES) );
             }
 
-            sendStickyBroadcast(i);
+            //sendStickyBroadcast(i);
             ArrayList<String> thumbnailUrls = new ArrayList<String>();
             ArrayList<String> titles = new ArrayList<String>();
             ArrayList<String> excerpts = new ArrayList<String>();
@@ -154,7 +153,8 @@ public class PostTab extends ListActivity {
                 // Add thumbnail url to array
                 thumbnailUrls.add(entry.getThumbnailUrl());
                 // Add title to array
-                titles.add(entry.getTitle());
+                try{titles.add(java.net.URLDecoder.decode(entry.getTitle(), "UTF-8") );}
+                catch(Exception e) {}
                 // Add excerpt to array
                 excerpts.add(entry.getExcerpt());
                 // Add page urls

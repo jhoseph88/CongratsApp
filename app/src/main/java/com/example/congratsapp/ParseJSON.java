@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ParseJSON {
-    // HashMap to hold tabs (maps tab names, e.g. "Opportunities" to arry of Entries)
-    //private HashMap<String, ArrayList<Entry>> tabList;
 
     // JSON tags
     private static final String TAG_ID = "id";
@@ -25,35 +23,14 @@ public class ParseJSON {
     private static final String TAG_LINKS = "_links";
     private static final String TAG_GUID = "guid";
 
-    // extra tags for postList that will be returned
-    private static final String TAG_PAGE_URL = "page_url";
-    private static final String TAG_THUMBNAIL_LINK = "thumbnail_link";
-
-    // strings for tab names
-    private static final String TAB_LIFE_AND_COMMUNITIES = "life-and-communities";
-    private static final String TAB_OPPORTUNITIES = "opportunities";
-    private static final String TAB_ACADEMICS = "academics";
-
-    /*public ParseJSON() {
-        tabList = new HashMap<String, ArrayList<Entry>>();
-    }*/
-
     //public HashMap<String, ArrayList<Entry>> ParseJSONString(String json) {
     public ArrayList<Entry> ParseJSONString(String json) {
         if (json != null) {
             try {
                 // Hashmap for ListView
                 ArrayList<HashMap<String, String>> postList = new ArrayList<HashMap<String, String>>();
-
+                // Get array of posts from JSON feed and store it in JSONArray
                 JSONArray posts = new JSONArray(json);
-
-                // Array for life-and-communities tab
-                //ArrayList<Entry> life_and_communities = new ArrayList<Entry>();
-                // Array for academics tab
-                //ArrayList<Entry> academics = new ArrayList<Entry>();
-                // Array for opportunities tab
-                //ArrayList<Entry> opportunities = new ArrayList<Entry>();
-
                 // Array for posts that will be sent back for rendering
                 ArrayList<Entry> postsInTab = new ArrayList<Entry>();
 
@@ -97,14 +74,6 @@ public class ParseJSON {
                         // Make new entry to hold the data for given entry
                         Entry toAdd = new Entry(id, title, excerpt, thumbnailUrl, link);
 
-                        // Add entry to its corresponding array which represents each tab
-                        /*if (link.indexOf("life-and-communities") != -1) {
-                            life_and_communities.add(toAdd);
-                        } else if (link.indexOf("opportunities") != -1) {
-                            opportunities.add(toAdd);
-                        } else if (link.indexOf("academics") != -1) {
-                            academics.add(toAdd);
-                        }*/
                         // Add entry to the posts array
                         postsInTab.add(toAdd);
 
@@ -113,10 +82,6 @@ public class ParseJSON {
                         continue;
                     }
                 }
-                /*tabList.put(TAB_LIFE_AND_COMMUNITIES, life_and_communities);
-                tabList.put(TAB_OPPORTUNITIES, opportunities);
-                tabList.put(TAB_ACADEMICS, academics);*/
-                //return tabList;
                 return postsInTab;
 
             } catch (JSONException e) {
@@ -129,8 +94,4 @@ public class ParseJSON {
         }
     }
 
-    // Function to return entries for a given tab
-    /*public ArrayList<Entry> getTabEntries(String tabName) {
-        return this.tabList.get(tabName);
-    }*/
 }

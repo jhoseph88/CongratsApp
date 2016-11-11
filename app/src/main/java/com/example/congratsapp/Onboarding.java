@@ -49,7 +49,6 @@ public class Onboarding extends ActionBarActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         // Save state of listView via boolCheckBoxes variable
-        //editor.putString("thisCheckedList", String.valueOf(boolCheckBoxes) );
         editor.putBoolean(ONBOARDING_STATUS, true);
         editor.apply();
     }
