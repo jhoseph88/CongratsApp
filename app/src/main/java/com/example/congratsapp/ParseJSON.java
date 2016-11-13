@@ -23,7 +23,6 @@ public class ParseJSON {
     private static final String TAG_LINKS = "_links";
     private static final String TAG_GUID = "guid";
 
-    //public HashMap<String, ArrayList<Entry>> ParseJSONString(String json) {
     public ArrayList<Entry> ParseJSONString(String json) {
         if (json != null) {
             try {
@@ -46,7 +45,8 @@ public class ParseJSON {
                         // "title" is an object--extract it from "title" object with "rendered" key
                         String title = o.getJSONObject(TAG_TITLE).getString(TAG_RENDERED);
 
-                        // "excerpt" is an object--extract if from "content" object with "rendered" key
+                        // "excerpt" is an object--extract if from "content" object with "rendered"
+                        // key
                         String excerpt = o.getJSONObject(TAG_EXCERPT).getString(TAG_RENDERED);
                         // "excerpt" will have html tags, so must remove them with Jsoup
                         excerpt = Jsoup.parse(excerpt).text();
@@ -59,24 +59,23 @@ public class ParseJSON {
                                 .getJSONArray(TAG_FEATURED_MEDIA)
                                 .getJSONObject(0)
                                 .getString(TAG_HREF);
+
                         // WebRequest object to get thumbnail data
                         WebRequest webRequest = new WebRequest();
                         // Make request to url and store response as JSON string
-                        String jsonStr = webRequest.makeWebServiceCall(thumbnailJSONUrl, WebRequest.GET);
+                        String jsonStr = webRequest.makeWebServiceCall(thumbnailJSONUrl,
+                                                                       WebRequest.GET);
                         JSONObject thumbnailJSONData = new JSONObject(jsonStr);
                         // Get thumbnail URL
                         String thumbnailUrl = thumbnailJSONData.getJSONObject(TAG_GUID)
-                                .getString(TAG_RENDERED);
+                                                               .getString(TAG_RENDERED);
 
                         // hashmap for single entry
                         HashMap<String, String> entry = new HashMap<String, String>();
-
                         // Make new entry to hold the data for given entry
                         Entry toAdd = new Entry(id, title, excerpt, thumbnailUrl, link);
-
                         // Add entry to the posts array
                         postsInTab.add(toAdd);
-
                     }
                     catch (JSONException e) {
                         continue;

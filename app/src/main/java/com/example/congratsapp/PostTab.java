@@ -1,16 +1,15 @@
 package com.example.congratsapp;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
+
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -89,7 +88,7 @@ public class PostTab extends ListActivity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            // Create service handler class instance
+            // Create webrequest object to retrieve post data
             WebRequest webRequest = new WebRequest();
 
             // Make request to academics posts url and store posts as JSON string
@@ -125,22 +124,16 @@ public class PostTab extends ListActivity {
             if (pDialog.isShowing())
                 pDialog.dismiss();
 
-            Intent i = new Intent(INTENT_ACADEMICS);
+            // Populate entries array with entries from the specified tab
             String thisTabName = getTabName();
             if (thisTabName == TAB_ACADEMICS) {
                 entries = tabList.get(TAB_ACADEMICS);
-                // send entries for academics to academics tab
-                i.putExtra("entries", tabList.get(TAB_ACADEMICS));
             } else if (thisTabName == TAB_OPPORTUNITIES) {
                 entries = tabList.get(TAB_OPPORTUNITIES);
-                // send entries for academics to opportunities tab
-                i.putExtra("entries", tabList.get(TAB_OPPORTUNITIES) );
             } else if (thisTabName == TAB_LIFE_AND_COMMUNITIES) {
                 entries = tabList.get(TAB_LIFE_AND_COMMUNITIES);
-                i.putExtra("entries", tabList.get(TAB_LIFE_AND_COMMUNITIES) );
             }
 
-            //sendStickyBroadcast(i);
             ArrayList<String> thumbnailUrls = new ArrayList<String>();
             ArrayList<String> titles = new ArrayList<String>();
             ArrayList<String> excerpts = new ArrayList<String>();
@@ -148,15 +141,15 @@ public class PostTab extends ListActivity {
             final CustomEntryAdapter adapter = new CustomEntryAdapter(PostTab.this, thumbnailUrls,
                     titles, excerpts, pageUrls);
 
+            URLDecoder decoder = new URLDecoder();
             for (int j = 0; j < entries.size(); j++) {
                 Entry entry = (Entry) entries.get(j);
                 // Add thumbnail url to array
-                thumbnailUrls.add(entry.getThumbnailUrl());
-                // Add title to array
-                try{titles.add(java.net.URLDecoder.decode(entry.getTitle(), "UTF-8") );}
-                catch(Exception e) {}
-                // Add excerpt to array
-                excerpts.add(entry.getExcerpt());
+                thumbnailUrls.add(entry.getThumbnailUrl() );
+                // Unescape any html codes in title and add title to array
+                titles.add(StringEscapeUtils.unescapeHtml4(entry.getTitle() ) );
+                // Unescape any html codes in excerpt add excerpt to array
+                excerpts.add(StringEscapeUtils.unescapeHtml4(entry.getExcerpt() ) );
                 // Add page urls
                 pageUrls.add(entry.getPageUrl());
 
