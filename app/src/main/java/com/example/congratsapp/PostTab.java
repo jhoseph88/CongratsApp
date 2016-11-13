@@ -54,8 +54,6 @@ public class PostTab extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.tab_opportunities);
-
         // start asynchronous JSON processing
         new PostTab.ParseJSONAsync().execute();
     }
@@ -141,7 +139,6 @@ public class PostTab extends ListActivity {
             final CustomEntryAdapter adapter = new CustomEntryAdapter(PostTab.this, thumbnailUrls,
                     titles, excerpts, pageUrls);
 
-            URLDecoder decoder = new URLDecoder();
             for (int j = 0; j < entries.size(); j++) {
                 Entry entry = (Entry) entries.get(j);
                 // Add thumbnail url to array
