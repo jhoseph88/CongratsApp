@@ -2,6 +2,8 @@ package com.example.congratsapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 public class InfoActivity extends AppCompatActivity {
@@ -12,7 +14,6 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         String infoString = "Congrats Michigan Engineer! Mobile Application\n\n" +
-                "Privacy Policy\n\n" +
                 "PRIVACY POLICY FRAMEWORK\n\n" +
                 "This privacy policy governs your use of the Congrats Michigan Engineer! software application (“Application”) on a mobile device that was created by The University of Michigan. The\n\n" +
                 "Application includes checklist, news, video, and information.\n\n" +
@@ -45,5 +46,25 @@ public class InfoActivity extends AppCompatActivity {
 
         TextView infoText = (TextView) findViewById(R.id.infoText);
         infoText.setText(infoString);
+l
+        String infoPageHeader = "<b>ABOUT & CONTACT<b><br>";
+        TextView infoHeader = (TextView) findViewById(R.id.infoHeader);
+        infoHeader.setText(Html.fromHtml(infoPageHeader) );
+
+        String appContactEmail = "<a href=\"mailto:CongratsMgineerApp@umich.edu\">" +
+                                 "CongratsMgineerApp@umich.edu</a><br>";
+        TextView appEmailView = (TextView) findViewById(R.id.appContactEmail);
+        appEmailView.setText(Html.fromHtml(appContactEmail) );
+        appEmailView.setMovementMethod(LinkMovementMethod.getInstance() );
+
+        String admissionsContactEmail = "<a href=\"mailto:enginrta@umich.edu\">" +
+                                        "enginrta@umich.edu</a><br>";
+        TextView admissionsEmailView = (TextView) findViewById(R.id.admissionsContactEmail);
+        admissionsEmailView.setText(Html.fromHtml(admissionsContactEmail) );
+        admissionsEmailView.setMovementMethod(LinkMovementMethod.getInstance() );
+
+        TextView privacyPolicyHeader = (TextView) findViewById(R.id.privacyPolicyHeader);
+        String privPolicyTitle = "<b>Privacy Policy<b><br>";
+        privacyPolicyHeader.setText(Html.fromHtml(privPolicyTitle) );
     }
 }
