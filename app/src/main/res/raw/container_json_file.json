@@ -1,0 +1,63 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2016-11-04 15:28:15",
+    "containerVersion": {
+        "accountId": "566322104",
+        "containerId": "2740787",
+        "containerVersionId": "0",
+        "deleted": false,
+        "container": {
+            "accountId": "566322104",
+            "containerId": "2740787",
+            "name": "Congrats App Android",
+            "publicId": "GTM-KPJPD5",
+            "timeZoneCountryId": "US",
+            "timeZoneId": "America/Los_Angeles",
+            "notes": "",
+            "usageContext": [
+                "ANDROID"
+            ],
+            "fingerprint": "1477322940005",
+            "tagManagerUrl": "localhost:9001/#/container/accounts/566322104/containers/2740787/workspaces?apiLink=container"
+        },
+        "builtInVariable": [
+            {
+                "accountId": "566322104",
+                "containerId": "2740787",
+                "type": "EVENT",
+                "name": "Event",
+                "isEnabled": true
+            },
+            {
+                "accountId": "566322104",
+                "containerId": "2740787",
+                "type": "APP_ID",
+                "name": "App ID",
+                "isEnabled": true
+            },
+            {
+                "accountId": "566322104",
+                "containerId": "2740787",
+                "type": "APP_NAME",
+                "name": "App Name",
+                "isEnabled": true
+            },
+            {
+                "accountId": "566322104",
+                "containerId": "2740787",
+                "type": "APP_VERSION_CODE",
+                "name": "App Version Code",
+                "isEnabled": true
+            },
+            {
+                "accountId": "566322104",
+                "containerId": "2740787",
+                "type": "APP_VERSION_NAME",
+                "name": "App Version Name",
+                "isEnabled": true
+            }
+        ],
+        "fingerprint": "0",
+        "tagManagerUrl": "localhost:9001/#/versions/accounts/566322104/containers/2740787/versions/0?apiLink=version"
+    }
+}
