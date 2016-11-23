@@ -55,8 +55,6 @@ public class TabActivity extends android.app.TabActivity {
 
         // Set formatting for tabs (white font and blue background)
         final TabWidget tw = (TabWidget) tabHost.findViewById(android.R.id.tabs);
-        // Get width of display to make tabs variable
-        Display display = getWindowManager().getDefaultDisplay();
         int width = tw.getWidth();
         int height = tw.getHeight();
         tw.getChildAt(0).setLayoutParams(new LinearLayout.LayoutParams((width/6)-2,(height / 2) - 2) );
@@ -71,6 +69,7 @@ public class TabActivity extends android.app.TabActivity {
             // Change width for LIST tab (this is the narrowest tab)
             tabHost.getTabWidget().getChildAt(i).setBackgroundColor(getResources().
                                                                     getColor(edu.umich.engin.congrats.R.color.NavyBlue) );
+
         }// for
         // Change appearance for when tab is selected
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {

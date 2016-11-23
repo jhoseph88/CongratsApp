@@ -20,6 +20,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
             </FrameLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+
             <TabWidget
                 android:id="@android:id/tabs"
                 android:orientation="horizontal"
@@ -30,5 +37,6 @@
                 android:background="@color/NavyBlue"
                 android:layout_marginBottom="-4dp"
                 />
+            </HorizontalScrollView>
         </LinearLayout>
 </TabHost>

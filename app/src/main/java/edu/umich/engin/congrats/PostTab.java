@@ -132,8 +132,8 @@ public class PostTab extends ListActivity {
             ArrayList<String> titles = new ArrayList<String>();
             ArrayList<String> excerpts = new ArrayList<String>();
             final ArrayList<String> pageUrls = new ArrayList<String>();
-            final CustomEntryAdapter adapter = new CustomEntryAdapter(PostTab.this, thumbnailUrls,
-                    titles, excerpts, pageUrls);
+            /*final CustomEntryAdapter adapter = new CustomEntryAdapter(PostTab.this, thumbnailUrls,
+                    titles, excerpts, pageUrls);*/
 
             for (int j = 0; j < entries.size(); j++) {
                 Entry entry = (Entry) entries.get(j);
@@ -147,6 +147,8 @@ public class PostTab extends ListActivity {
                 pageUrls.add(entry.getPageUrl());
 
             }
+            final CustomEntryAdapter adapter = new CustomEntryAdapter(PostTab.this, thumbnailUrls,
+                    titles, excerpts, pageUrls);
             ListView listView = getListView();
             setListAdapter(adapter);
             listView.setAdapter(adapter);

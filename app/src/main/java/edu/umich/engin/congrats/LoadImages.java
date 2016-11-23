@@ -133,6 +133,7 @@ public class LoadImages {
                     } else {
                         BitmapDisplayer bitmapDisplayer = new BitmapDisplayer(bitmap, photoToLoad);
                         Activity activity = (Activity) photoToLoad.imageView.getContext();
+                        activity.runOnUiThread(bitmapDisplayer);
                     }
                 }
             }
