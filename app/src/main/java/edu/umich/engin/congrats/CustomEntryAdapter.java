@@ -21,6 +21,7 @@ public class CustomEntryAdapter extends BaseAdapter {
     private ArrayList<String> excerpts;
     private ArrayList<String> pageUrls;
     private static LayoutInflater inflater = null;
+    private LoadImages imgLoader;
     // Custom constructor for CustomEntryAdapter
     public CustomEntryAdapter(Activity a, ArrayList<String> thumbnailUrls, ArrayList<String> titles,
                               ArrayList<String> excerpts, ArrayList<String> pageUrls) {
@@ -30,6 +31,7 @@ public class CustomEntryAdapter extends BaseAdapter {
         this.excerpts = excerpts;
         this.pageUrls = pageUrls;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        imgLoader = new LoadImages(a);
     }
 
     @Override
@@ -65,7 +67,8 @@ public class CustomEntryAdapter extends BaseAdapter {
         TextView excerpt = (TextView) view.findViewById(edu.umich.engin.congrats.R.id.excerpt);
         excerpt.setText(URLDecoder.decode(excerpts.get(position) ) );
         ImageView img = (ImageView) view.findViewById(edu.umich.engin.congrats.R.id.imageView);
-        new LoadImages().new LoadImage(thumbnailUrls.get(position), img).execute();
+        //new LoadImages().new LoadImage(thumbnailUrls.get(position), img).execute();
+        imgLoader.DisplayImage(thumbnailUrls.get(position), img);
         return view;
     }
 }

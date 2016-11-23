@@ -5,6 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import edu.umich.engin.congrats.OnboardingFragments.FragmentFive;
+import edu.umich.engin.congrats.OnboardingFragments.FragmentFour;
+import edu.umich.engin.congrats.OnboardingFragments.FragmentOne;
+import edu.umich.engin.congrats.OnboardingFragments.FragmentThree;
+import edu.umich.engin.congrats.OnboardingFragments.FragmentTwo;
+
 
 public class PagerAdapter extends FragmentPagerAdapter {
     private Context context;

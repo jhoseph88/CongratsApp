@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PostTab extends ListActivity {
-    // String for intent (for sticky broadcast)
-    private static final String INTENT_ACADEMICS = "intent_academics";
-    // String for the url for the JSON feed
     //URL for academics tab
     private static String URL_ACADEMICS = "http://coecongrats.wpengine.com/wp-json/wp/v2/posts?" +
                                           "categories=3&per_page=100";

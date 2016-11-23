@@ -1,4 +1,4 @@
-package edu.umich.engin.congrats;
+package edu.umich.engin.congrats.OnboardingFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import edu.umich.engin.congrats.TabActivity;
 
 
 public class FragmentTwo extends Fragment {

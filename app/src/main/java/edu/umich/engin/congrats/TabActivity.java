@@ -12,6 +12,10 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
 
+import edu.umich.engin.congrats.MainTabs.AcademicsTab;
+import edu.umich.engin.congrats.MainTabs.LifeAndActivitiesTab;
+import edu.umich.engin.congrats.MainTabs.OpportunitiesTab;
+
 public class TabActivity extends android.app.TabActivity {
 
 

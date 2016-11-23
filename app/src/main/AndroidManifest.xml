@@ -3,7 +3,7 @@
           package="edu.umich.engin.congrats">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />﻿
     <!--For Google Play services-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -71,7 +71,7 @@
             android:name="edu.umich.engin.congrats.TabActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="edu.umich.engin.congrats.AcademicsTab"
+            android:name="edu.umich.engin.congrats.MainTabs.AcademicsTab"
             android:screenOrientation="portrait"/>
         <activity
             android:name="edu.umich.engin.congrats.CheckListActivity"
@@ -84,10 +84,10 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name="edu.umich.engin.congrats.LifeAndActivitiesTab"
+            android:name="edu.umich.engin.congrats.MainTabs.LifeAndActivitiesTab"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="edu.umich.engin.congrats.OpportunitiesTab"
+            android:name="edu.umich.engin.congrats.MainTabs.OpportunitiesTab"
             android:screenOrientation="portrait"/>
         <activity android:name="edu.umich.engin.congrats.InfoActivity"
                   android:screenOrientation="portrait">

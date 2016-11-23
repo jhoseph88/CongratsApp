@@ -1,4 +1,4 @@
-package edu.umich.engin.congrats;
+package edu.umich.engin.congrats.OnboardingFragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
