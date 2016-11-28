@@ -15,13 +15,13 @@ public class Onboarding extends ActionBarActivity {
 
     ViewPager viewpager;
     Context context;
+    private final String ONBOARDING_STATUS = "onboardingDone";
 
     public Onboarding(Context context) {
         this.context = context;
     }
     public Onboarding() {}
 
-    private final String ONBOARDING_STATUS = "onboardingDone";
     private static final String MSG = "PUSH NOTIFICATION";
     // Will hold ContainerHolderSingleton for Google Play
     private Container container;
@@ -32,7 +32,7 @@ public class Onboarding extends ActionBarActivity {
         setContentView(edu.umich.engin.congrats.R.layout.activity_onboarding);
         // Create onboarding pager with welcome screens that will be shown only once
         viewpager = (ViewPager)findViewById(edu.umich.engin.congrats.R.id.pager);
-        edu.umich.engin.congrats.PagerAdapter padapter = new edu.umich.engin.congrats.PagerAdapter(getSupportFragmentManager());
+        edu.umich.engin.congrats.PagerAdapter padapter = new edu.umich.engin.congrats.PagerAdapter(getSupportFragmentManager(), this);
         viewpager.setAdapter(padapter);
         // Get ContainerHolderSingleton container
         //container = ContainerHolderSingleton.getContainerHolder().getContainer();
@@ -45,26 +45,6 @@ public class Onboarding extends ActionBarActivity {
                 Log.d(MSG, "Key: " + key + " Value: " + value);
             }
         }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        // Save state of listView via boolCheckBoxes variable
-        editor.putBoolean(ONBOARDING_STATUS, true);
-        editor.apply();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        // Save state of listView via boolCheckBoxes variable
-        editor.putBoolean(ONBOARDING_STATUS, true);
-        editor.apply();
     }
 
     @Override

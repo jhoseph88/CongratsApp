@@ -14,9 +14,11 @@ import edu.umich.engin.congrats.OnboardingFragments.FragmentTwo;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     private Context context;
+    private final String ONBOARDING_STATUS = "onboardingDone";
 
-    public PagerAdapter(FragmentManager fm) {
+    public PagerAdapter(FragmentManager fm, Context ctx) {
         super(fm);
+        this.context = ctx;
     }
 
     @Override
@@ -30,6 +32,8 @@ public class PagerAdapter extends FragmentPagerAdapter {
                 return new FragmentThree();
             case 3:
                 return new FragmentFour();
+            // This is the video tab -- if video was viewed, set ONBOARDING_STATUS to true
+            // so that onboarding intro screens aren't shown again.
             case 4:
                 return new FragmentFive();
             default:
@@ -43,4 +47,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
         // Return number of fragments to swipe through in onboarding sequence
         return 5;
     }
+
+
+
 }
