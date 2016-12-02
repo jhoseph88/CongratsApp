@@ -1,6 +1,9 @@
 package edu.umich.engin.congrats;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -35,6 +38,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
             // This is the video tab -- if video was viewed, set ONBOARDING_STATUS to true
             // so that onboarding intro screens aren't shown again.
             case 4:
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.context);
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(ONBOARDING_STATUS, true);
+                editor.apply();
                 return new FragmentFive();
             default:
                 break;
@@ -47,7 +55,5 @@ public class PagerAdapter extends FragmentPagerAdapter {
         // Return number of fragments to swipe through in onboarding sequence
         return 5;
     }
-
-
 
 }

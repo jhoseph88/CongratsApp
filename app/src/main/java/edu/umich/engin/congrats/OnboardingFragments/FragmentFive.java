@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 
 public class FragmentFive extends android.support.v4.app.Fragment {
     private final String ONBOARDING_STATUS = "onboardingDone";
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -33,11 +34,7 @@ public class FragmentFive extends android.support.v4.app.Fragment {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.loadData(webData, "text/html", "utf-8");
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        // Save state of listView via boolCheckBoxes variable
-        editor.putBoolean(ONBOARDING_STATUS, true);
-        editor.apply();
+
         return view;
     }
 }

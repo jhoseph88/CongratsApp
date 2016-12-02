@@ -1,6 +1,8 @@
 package edu.umich.engin.congrats;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,8 @@ public class LaunchScreenActivity extends AppCompatActivity {
     private final String CONTAINER_ID = "GTM_KPJPD5";
     // Timeout in milliseconds for container to open
     private static final long TIMEOUT_FOR_CONTAINER_OPEN_MILLISECONDS = 2000;
+
+    private final String ONBOARDING_STATUS = "onboardingDone";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
