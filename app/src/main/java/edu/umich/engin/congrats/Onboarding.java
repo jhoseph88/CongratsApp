@@ -55,9 +55,9 @@ public class Onboarding extends ActionBarActivity {
         Boolean onboardingDone = sharedPreferences.getBoolean(ONBOARDING_STATUS, false);
 
         // if onboarding has been completed, just go to the tab activity
-       if (onboardingDone) {
+       /*if (onboardingDone) {
             Intent switchToTabActivity = new Intent(Onboarding.this, TabActivity.class);
             startActivity(switchToTabActivity);
-       }
+       }*/
     }
 }

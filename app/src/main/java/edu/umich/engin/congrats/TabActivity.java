@@ -48,9 +48,9 @@ public class TabActivity extends android.app.TabActivity {
         tabHost.addTab(tabSpec);
 
         intent = new Intent(this, LifeAndActivitiesTab.class);
-        tabSpec = tabHost.newTabSpec("LIFE & ACTIVITIES");
+        tabSpec = tabHost.newTabSpec("LIFE & COMMUNITIES");
         tabSpec.setContent(intent);
-        tabSpec.setIndicator("LIFE & ACTIVITIES");
+        tabSpec.setIndicator("LIFE & COMMUNITIES");
         tabHost.addTab(tabSpec);
 
         // Set formatting for tabs (white font and blue background)

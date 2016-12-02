@@ -2,6 +2,7 @@ package edu.umich.engin.congrats;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -53,6 +54,7 @@ class ToDoAdapter extends ArrayAdapter<ToDo> {
             }
         });
         name.setText(Html.fromHtml(toDoItems[position].getName() ) );
+        name.setTypeface(Typeface.DEFAULT);
         name.setMovementMethod(LinkMovementMethod.getInstance() );
         heading.setText(stepNumberHeadings[position]);
         // Add deposit reminder to final two checklist items.
