@@ -1,9 +1,12 @@
 package edu.umich.engin.congrats;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 public class CheckListActivity extends Activity {
@@ -75,6 +78,15 @@ public class CheckListActivity extends Activity {
         }
         ToDoAdapter toDoAdapter = new ToDoAdapter(this, toDoItems, stepNumberHeadings);
         listView.setAdapter(toDoAdapter);
+        // set onclick listener to go to info page if info button clicked
+        ImageButton infoButton = (ImageButton) findViewById(R.id.checklistInfoButton);
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchToTabActivity = new Intent(getApplicationContext(), InfoActivity.class);
+                startActivity(switchToTabActivity);
+            }
+        });
 
     }
     @Override

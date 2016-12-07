@@ -1,12 +1,20 @@
 package edu.umich.engin.congrats;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class InfoActivity extends AppCompatActivity {
+    private final String ONBOARDING_STATUS = "onboardingDone";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,5 +74,19 @@ public class InfoActivity extends AppCompatActivity {
         TextView privacyPolicyHeader = (TextView) findViewById(edu.umich.engin.congrats.R.id.privacyPolicyHeader);
         String privPolicyTitle = "<b>Privacy Policy<b><br>";
         privacyPolicyHeader.setText(Html.fromHtml(privPolicyTitle) );
+
+        Button backToOnboardingButton = (Button) findViewById(R.id.backToOnboardingButton);
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        backToOnboardingButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(ONBOARDING_STATUS, false);
+                editor.apply();
+                Intent switchToTabActivity = new Intent(getApplicationContext(), Onboarding.class);
+                startActivity(switchToTabActivity);
+            }
+        });
     }
 }

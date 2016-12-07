@@ -14,7 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
         <TextView
             android:id="@+id/infoHeader"
             android:layout_width="match_parent"
@@ -45,7 +46,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"/>
-    <TextView
+
+        <Button
+            android:text="Return to onboarding screens"
+            android:textColor="@color/NavyBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backToOnboardingButton"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
         android:id="@+id/privacyPolicyHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

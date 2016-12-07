@@ -38,7 +38,6 @@ public class PagerAdapter extends FragmentPagerAdapter {
             // so that onboarding intro screens aren't shown again.
             case 4:
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.context);
-
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(ONBOARDING_STATUS, true);
                 editor.apply();
