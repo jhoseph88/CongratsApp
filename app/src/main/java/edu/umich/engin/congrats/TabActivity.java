@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.view.Display;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -30,9 +31,9 @@ public class TabActivity extends android.app.TabActivity {
 
         Intent intent = new Intent(this, CheckListActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        TabHost.TabSpec tabSpec = tabHost.newTabSpec("LIST");
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("CHECKLIST");
         tabSpec.setContent(intent);
-        tabSpec.setIndicator("LIST");
+        tabSpec.setIndicator("CHECKLIST");
         tabHost.addTab(tabSpec);
 
         intent = new Intent(this, AcademicsTab.class);
@@ -61,6 +62,7 @@ public class TabActivity extends android.app.TabActivity {
         tw.getChildAt(1).setLayoutParams(new LinearLayout.LayoutParams((width/6)-2, (height / 2) - 2) );
         tw.getChildAt(2).setLayoutParams(new LinearLayout.LayoutParams((width/5)-2, (height / 2) - 2) );
         tw.getChildAt(3).setLayoutParams(new LinearLayout.LayoutParams((width/4)-2, (height / 2) -2) );
+
         for (int i = 0; i < tw.getChildCount(); ++i) {
             final View tabView = tw.getChildTabViewAt(i);
             final TextView tv = (TextView) tabView.findViewById(android.R.id.title);
@@ -71,6 +73,11 @@ public class TabActivity extends android.app.TabActivity {
                                                                     getColor(edu.umich.engin.congrats.R.color.NavyBlue) );
 
         }// for
+        // Checklist tab will be 'selected' (maize) initially
+        tabHost.getTabWidget().getChildAt(0).setBackgroundColor(ContextCompat.getColor(this, R.color.Maize) );
+        View tabView = tw.getChildTabViewAt(0);
+        TextView tv = (TextView) tabView.findViewById(android.R.id.title);
+        tv.setTextColor(ContextCompat.getColor(this, R.color.NavyBlue) );
         // Change appearance for when tab is selected
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override

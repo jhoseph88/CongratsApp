@@ -46,6 +46,8 @@ public class FragmentFive extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 Intent switchToTabActivity = new Intent(getActivity(), TabActivity.class);
                 startActivity(switchToTabActivity);
+                // pop video activity so it doesn't keep playing when user clicks "let's go"
+                getActivity().getFragmentManager().popBackStack();
             }
         });
 
