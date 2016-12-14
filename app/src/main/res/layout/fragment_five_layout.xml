@@ -15,7 +15,7 @@
         />
 
     <Button
-        android:text="Alright... Let's go!"
+        android:text="Alright ... Let's go!"
         android:textColor="@color/Maize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
