@@ -37,11 +37,10 @@ public class CheckListActivity extends Activity {
         toDoItems[0] = new ToDo("Receive your acceptance letter (done!) Share your success on " +
                                 "<a href=\"http://coecongrats.wpengine.com/to-do/social/\">" +
                                 "social media</a>—there’s images for friends and family too!", 0);
-        toDoItems[1] = new ToDo("<a href=\"https://regstg.com/Registration/(S(vcupsm" +
-                                "i11o3fwbxj41x1mwdt))/Registration.aspx?rid=cb24633f-4087-497f-8b" +
-                                "80-c2ee95468638\">Register for Campus Day</a>. This program is " +
-                                "held January through April, and registration starts in January. " +
-                                "In the meantime, review <a href=\"http://www.engin.umich.edu/" +
+        toDoItems[1] = new ToDo("<a href=\"https://admissions.umich.edu/apply/admitted-students/" +
+                                "freshman-next-steps/campus-day\">Register for Campus Day</a>." +
+                                "This program is held January through April, and registration " +
+                                "starts in January. In the meantime, review <a href=\"http://www.engin.umich.edu/" +
                                 "college/admissions/undergrad/admitted\">admitted student website" +
                                 "</a>.", 0);
         toDoItems[2] = new ToDo("Complete your <a href=\"http://www.finaid.umich.edu/Home/HowtoAp" +
@@ -53,7 +52,7 @@ public class CheckListActivity extends Activity {
                                 "Payment can be made via <a href=\"http://wolverineaccess.umich." +
                                 "edu/render.userLayoutRootNode.uP?uP_root=root&uP_sparam=activeTa" +
                                 "b&activeTab=2\">Wolverine Access</a>, or post marked by May 1, " +
-                                "2016. Please login to <a href=\"http://wolverineaccess.umich.edu" +
+                                "2017. Please login to <a href=\"http://wolverineaccess.umich.edu" +
                                 "/render.userLayoutRootNode.uP?uP_root=root&uP_sparam=activeTab&a" +
                                 "ctiveTab=2\">Wolverine Access</a> for more information about " +
                                 "making your deposit.", 0);
