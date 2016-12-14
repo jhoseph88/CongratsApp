@@ -13,6 +13,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import edu.umich.engin.congrats.R;
 import edu.umich.engin.congrats.TabActivity;
 
@@ -40,10 +42,17 @@ public class FragmentFive extends android.support.v4.app.Fragment {
         webSettings.setJavaScriptEnabled(true);
         webView.loadData(webData, "text/html", "utf-8");
 
+        // Obtain the FirebaseAnalytics instance.
+        final FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this.getContext() );
+
         Button toDoListButton = (Button)view.findViewById(R.id.skipToChecklistButton);
         toDoListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle params = new Bundle();
+                // send skip_video == true to firebase analytics when a user checks off an item
+                params.putBoolean("skip_video", true);
+                mFirebaseAnalytics.logEvent("skip_video", params);
                 Intent switchToTabActivity = new Intent(getActivity(), TabActivity.class);
                 startActivity(switchToTabActivity);
                 // pop video activity so it doesn't keep playing when user clicks "let's go"

@@ -3,6 +3,7 @@ package edu.umich.engin.congrats;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 class ToDoAdapter extends ArrayAdapter<ToDo> {
     ToDo[] toDoItems = null;
@@ -39,6 +42,9 @@ class ToDoAdapter extends ArrayAdapter<ToDo> {
         CheckBox checkBox = (CheckBox) convertView.findViewById(edu.umich.engin.congrats.R.id.checkBox);
         final int pos = position;
 
+
+        // Obtain the FirebaseAnalytics instance.
+        final FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this.context);
         // Update boolCheckBoxes when user clicks/unclicks a checkbox
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -46,6 +52,10 @@ class ToDoAdapter extends ArrayAdapter<ToDo> {
                 if (isChecked) {
                     toDoItems[pos].setValue(1);
                     ( (CheckListActivity)context).updateCheckboxString(position, true);
+                    Bundle params = new Bundle();
+                    // send checked == true to firebase analytics when a user checks off an item
+                    params.putBoolean("checklist_tick", true);
+                    mFirebaseAnalytics.logEvent("checklist_tick", params);
                 }
                 else {
                     toDoItems[pos].setValue(0);
