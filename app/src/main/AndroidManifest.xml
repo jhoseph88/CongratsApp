@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="edu.umich.engin.congrats">
+          package="edu.umich.engin.congratsapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />﻿
@@ -28,21 +28,21 @@
         </receiver>
         <!--Service required for receiving notifications in foreground apps-->
         <service
-            android:name=".MyFirebaseMessagingService">
+            android:name="edu.umich.engin.congratsapp.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
         <!--Service required for sending to specific devices or for creating device groups-->
         <service
-            android:name=".MyFirebaseInstanceIDService">
+            android:name="edu.umich.engin.congratsapp.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
 
         <activity
-            android:name="edu.umich.engin.congrats.LaunchScreenActivity"
+            android:name="edu.umich.engin.congratsapp.LaunchScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/LaunchTheme">
             <intent-filter>
@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.umich.engin.congrats.Onboarding"
+            android:name="edu.umich.engin.congratsapp.Onboarding"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -70,28 +70,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.umich.engin.congrats.TabActivity"
+            android:name="edu.umich.engin.congratsapp.TabActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="edu.umich.engin.congrats.MainTabs.AcademicsTab"
+            android:name="edu.umich.engin.congratsapp.MainTabs.AcademicsTab"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="edu.umich.engin.congrats.CheckListActivity"
-            android:parentActivityName="edu.umich.engin.congrats.Onboarding"
+            android:name="edu.umich.engin.congratsapp.CheckListActivity"
+            android:parentActivityName="edu.umich.engin.congratsapp.Onboarding"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="edu.umich.engin.congrats.DisplayWebpage"
+            android:name="edu.umich.engin.congratsapp.DisplayWebpage"
             android:label="@string/title_activity_display_webpage"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name="edu.umich.engin.congrats.MainTabs.LifeAndActivitiesTab"
+            android:name="edu.umich.engin.congratsapp.MainTabs.LifeAndActivitiesTab"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="edu.umich.engin.congrats.MainTabs.OpportunitiesTab"
+            android:name="edu.umich.engin.congratsapp.MainTabs.OpportunitiesTab"
             android:screenOrientation="portrait"/>
-        <activity android:name="edu.umich.engin.congrats.InfoActivity"
+        <activity android:name="edu.umich.engin.congratsapp.InfoActivity"
                   android:screenOrientation="portrait">
         </activity>
         <!--  Add preview activity for Google Tag Manager. -->
