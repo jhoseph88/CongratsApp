@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.tagmanager.Container;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class Onboarding extends ActionBarActivity {
 
@@ -23,8 +24,9 @@ public class Onboarding extends ActionBarActivity {
     public Onboarding() {}
 
     private static final String MSG = "PUSH NOTIFICATION";
-    // Will hold ContainerHolderSingleton for Google Play
-    private Container container;
+
+    // Firebase
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,10 @@ public class Onboarding extends ActionBarActivity {
         viewpager = (ViewPager)findViewById(edu.umich.engin.congrats.R.id.pager);
         edu.umich.engin.congrats.PagerAdapter padapter = new edu.umich.engin.congrats.PagerAdapter(getSupportFragmentManager(), this);
         viewpager.setAdapter(padapter);
-        // Get ContainerHolderSingleton container
-        //container = ContainerHolderSingleton.getContainerHolder().getContainer();
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         //Receive messages from firebase
         // Handle possible data accompanying notification message.
         // [START handle_data_extras]

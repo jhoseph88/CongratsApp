@@ -15,8 +15,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar"
-        android:debuggable="true">
+        android:theme="@style/AppTheme.NoActionBar">
 
         <!-- Used for install referrer tracking-->
         <service android:name="com.google.android.gms.tagmanager.InstallReferrerService" />
