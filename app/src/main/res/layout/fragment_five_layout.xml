@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="edu.umich.engin.congratsapp.OnboardingFragments.FragmentFive">
+             tools:context="edu.umich.engin.congrats.OnboardingFragments.FragmentFive">
 
     <WebView
         android:id="@+id/verticalVid"
